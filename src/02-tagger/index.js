@@ -11,9 +11,9 @@ const tagger = function(doc) {
   // everything has gotta be something. ¯\_(:/)_/¯
   doc = fallbacks(doc, terms)
   // support "didn't" & "spencer's"
-  console.time('contraction')
+  // console.time('contraction')
   doc = contractions(doc)
-  console.timeEnd('contraction')
+  // console.timeEnd('contraction')
   //set our cache, to speed things up
   doc.cache()
   // wiggle-around the results, so they make more sense

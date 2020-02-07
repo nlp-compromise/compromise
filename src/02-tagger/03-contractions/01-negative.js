@@ -1,16 +1,16 @@
-const hasNegative = /n't$/
+// const hasNegative = /n't$/
 
-const irregulars = {
-  // "won't": ['will', 'not'],
-  // wont: ['will', 'not'],
-  // "can't": ['can', 'not'],
-  // cant: ['can', 'not'],
-  // cannot: ['can', 'not'],
-  // "shan't": ['should', 'not'],
-  // dont: ['do', 'not'],
-  // dun: ['do', 'not'],
-  // "ain't" is ambiguous for is/was
-}
+// const irregulars = {
+// "won't": ['will', 'not'],
+// wont: ['will', 'not'],
+// "can't": ['can', 'not'],
+// cant: ['can', 'not'],
+// cannot: ['can', 'not'],
+// "shan't": ['should', 'not'],
+// dont: ['do', 'not'],
+// dun: ['do', 'not'],
+// "ain't" is ambiguous for is/was
+// }
 
 // either 'is not' or 'are not'
 const doAint = function(term, phrase) {
@@ -37,10 +37,11 @@ const checkNegative = function(term, phrase) {
     return doAint(term, phrase)
   }
   //try it normally
-  if (hasNegative.test(term.clean) === true) {
-    let main = term.clean.replace(hasNegative, '')
-    return [main, 'not']
-  }
+  // if (hasNegative.test(term.clean) === true) {
+  // console.log(term.text)
+  //   let main = term.clean.replace(hasNegative, '')
+  //   return [main, 'not']
+  // }
   return null
 }
 module.exports = checkNegative

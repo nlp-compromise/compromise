@@ -1,4 +1,5 @@
 const contraction = /([a-z\u00C0-\u00FF]+)[\u0027\u0060\u00B4\u2018\u2019\u201A\u201B\u2032\u2035\u2039\u203A]([a-z]{1,2})$/i
+const hasNegative = /n't$/
 
 const known = {
   "won't": ['will', 'not'],
@@ -25,6 +26,18 @@ const known = {
   howd: ['how', 'did'],
   whatd: ['what', 'did'],
   // "let's": ['let', 'us'], //too weird
+
+  //multiple word contractions
+  dunno: ['do', 'not', 'know'],
+  brb: ['be', 'right', 'back'],
+  gtg: ['got', 'to', 'go'],
+  irl: ['in', 'real', 'life'],
+  tbh: ['to', 'be', 'honest'],
+  imo: ['in', 'my', 'opinion'],
+  til: ['today', 'i', 'learned'],
+  rn: ['right', 'now'],
+  twas: ['it', 'was'],
+  '@': ['at'],
 }
 
 //these ones don't seem to be ambiguous
@@ -37,10 +50,19 @@ const simple = {
 }
 
 const makeContraction = function(arr, str) {
+  // console.log(arr)
   let after = str.match(/\s+$/) || []
   after = after[0] || ''
   str = str.replace(/\s+$/, '')
   // console.log(str.match(/^(\s?)([^ ]+)(\s?)$/))
+  if (arr.length === 3) {
+    return [
+      { text: str, impl: arr[0] },
+      { text: '', impl: arr[1] },
+      { text: '', impl: arr[2], after: after },
+    ]
+  }
+
   return [
     { text: str, impl: arr[0] },
     { text: '', impl: arr[1], after: after },
@@ -56,6 +78,13 @@ const simpleContractions = function(terms) {
     if (known.hasOwnProperty(trim) === true) {
       let arr = known[trim]
       all = all.concat(makeContraction(arr, str))
+      return
+    }
+
+    if (hasNegative.test(trim) === true) {
+      // console.log(term.text)
+      let main = trim.replace(hasNegative, '')
+      all = all.concat(makeContraction([main, 'not'], str))
       return
     }
 

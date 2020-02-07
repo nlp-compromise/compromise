@@ -2,7 +2,7 @@ const checkLexicon = require('../01-init/01-lexicon')
 const tokenize = require('../../01-tokenizer')
 const checkNegative = require('./01-negative')
 // const checkApostrophe = require('./02-simple')
-const checkIrregulars = require('./03-irregulars')
+// const checkIrregulars = require('./03-irregulars')
 const checkPossessive = require('./04-possessive')
 const checkPerfect = require('./05-perfectTense')
 const checkRange = require('./06-ranges')
@@ -12,8 +12,6 @@ let count = 0
 
 const createPhrase = function(found, doc) {
   count += 1
-  console.log(count)
-  // console.log(found)
   //create phrase from ['would', 'not']
   let phrase = tokenize(found.join(' '), doc.world, doc.pool())[0]
   //tag it
@@ -44,7 +42,7 @@ const contractions = function(doc) {
       let term = terms[i]
       let found = checkNegative(term, p)
       // found = found || checkApostrophe(term)
-      found = found || checkIrregulars(term, p)
+      // found = found || checkIrregulars(term, p)
       found = found || checkPossessive(term, p, world)
       found = found || checkPerfect(term, p)
       found = found || checkRange(term, p)
