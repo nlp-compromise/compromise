@@ -17,6 +17,10 @@ const known = {
   ive: ['i', 'have'],
   imma: ['I', 'will'],
 
+  "that's": ['that', 'is'],
+  "there's": ['there', 'is'], //there was?
+  "it's": ['it', 'is'], //
+
   "where'd": ['where', 'did'],
   whered: ['where', 'did'],
   "when'd": ['when', 'did'],
