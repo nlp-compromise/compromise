@@ -59,6 +59,11 @@ const checkLexicon = function(terms, world) {
       terms[t].tag(lex[terms[t].reduced], 'lexicon-reduced', world)
       continue
     }
+    // look at implicit version of term, too
+    if (str !== terms[t].implicit && lex.hasOwnProperty(terms[t].implicit) === true) {
+      terms[t].tag(lex[terms[t].implicit], 'lexicon-implicit', world)
+      continue
+    }
     // prefix strip: try to match 'take' for 'undertake'
     if (underOver.test(str) === true) {
       let noPrefix = str.replace(underOver, '')

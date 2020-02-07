@@ -25,7 +25,7 @@ const fromText = function(text = '', world, pool) {
     terms = contractions(terms)
 
     terms = terms.map(o => {
-      let term = new Term(o.text, o.impl)
+      let term = new Term(o.text, o.impl, o.after)
       pool.add(term)
       return term
     })

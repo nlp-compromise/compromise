@@ -1,6 +1,6 @@
 const nlp = require('./src/index')
 // let txt = require('./scripts/test/speed/_sotu-text.js')
-nlp.verbose(true)
+// nlp.verbose(true)
 // nlp.extend(require('./plugins/numbers/src'))
 // nlp.extend(require('./plugins/scan/src'))
 
@@ -8,7 +8,9 @@ nlp.verbose(true)
 // nlp(`April, June, and September`).debug()
 
 // nlp(`i won't go`).debug()
-let doc = nlp(`i'm going`).debug()
+let doc = nlp(`before i'm          going`).debug()
+doc.contractions().expand()
+console.log(doc.text())
 // console.log(doc.termList())
 
 // console.time('all')

@@ -4,7 +4,7 @@ const methods = require('./methods')
 const tagMethods = require('./tag')
 
 class Term {
-  constructor(text = '', implicit = null) {
+  constructor(text = '', implicit = null, after = '') {
     text = String(text)
     let obj = parseTerm(text)
     // the various forms of our text
@@ -15,7 +15,7 @@ class Term {
     this.implicit = obj.implicit || implicit
 
     this.pre = obj.pre || ''
-    this.post = obj.post || ''
+    this.post = after || obj.post || ''
     this.tags = {}
     this.prev = null
     this.next = null
