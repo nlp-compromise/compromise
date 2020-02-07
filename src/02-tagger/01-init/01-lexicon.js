@@ -51,12 +51,12 @@ const checkLexicon = function(terms, world) {
     }
     //try one-word lexicon
     if (lex[str] !== undefined && lex.hasOwnProperty(str) === true) {
-      terms[t].tag(lex[str], 'lexicon', world)
+      terms[t].tag(lex[str], 'lexicon-clean', world)
       continue
     }
     // look at reduced version of term, too
     if (str !== terms[t].reduced && lex.hasOwnProperty(terms[t].reduced) === true) {
-      terms[t].tag(lex[terms[t].reduced], 'lexicon', world)
+      terms[t].tag(lex[terms[t].reduced], 'lexicon-reduced', world)
       continue
     }
     // prefix strip: try to match 'take' for 'undertake'

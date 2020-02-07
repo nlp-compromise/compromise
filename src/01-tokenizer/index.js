@@ -4,6 +4,7 @@ const Pool = require('./Pool')
 const linkTerms = require('./_linkTerms')
 const splitSentences = require('./01-sentences')
 const splitTerms = require('./02-words')
+const contractions = require('./03-contractions')
 
 /** turn a string into an array of Phrase objects */
 const fromText = function(text = '', world, pool) {
@@ -21,8 +22,10 @@ const fromText = function(text = '', world, pool) {
   pool = pool || new Pool()
 
   let phrases = sentences.map(terms => {
-    terms = terms.map(str => {
-      let term = new Term(str)
+    terms = contractions(terms)
+
+    terms = terms.map(o => {
+      let term = new Term(o.text, o.impl)
       pool.add(term)
       return term
     })

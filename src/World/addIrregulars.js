@@ -20,7 +20,9 @@ const addIrregulars = function(world) {
     forms = Object.assign(forms, verbs[inf])
     //add the others
     Object.keys(forms).forEach(tag => {
-      world.words[forms[tag]] = world.words[forms[tag]] || tag
+      if (forms[tag] !== '') {
+        world.words[forms[tag]] = world.words[forms[tag]] || tag
+      }
     })
   }
 }

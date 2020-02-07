@@ -1,20 +1,20 @@
 const irregulars = {
-  wanna: ['want', 'to'],
-  gonna: ['going', 'to'],
-  im: ['i', 'am'],
-  alot: ['a', 'lot'],
-  ive: ['i', 'have'],
-  imma: ['I', 'will'],
+  // wanna: ['want', 'to'],
+  // gonna: ['going', 'to'],
+  // im: ['i', 'am'],
+  // alot: ['a', 'lot'],
+  // ive: ['i', 'have'],
+  // imma: ['I', 'will'],
 
-  "where'd": ['where', 'did'],
-  whered: ['where', 'did'],
-  "when'd": ['when', 'did'],
-  whend: ['when', 'did'],
-  // "how'd": ['how', 'did'], //'how would?'
-  // "what'd": ['what', 'did'], //'what would?'
-  howd: ['how', 'did'],
-  whatd: ['what', 'did'],
-  // "let's": ['let', 'us'], //too weird
+  // "where'd": ['where', 'did'],
+  // whered: ['where', 'did'],
+  // "when'd": ['when', 'did'],
+  // whend: ['when', 'did'],
+  // // "how'd": ['how', 'did'], //'how would?'
+  // // "what'd": ['what', 'did'], //'what would?'
+  // howd: ['how', 'did'],
+  // whatd: ['what', 'did'],
+  // // "let's": ['let', 'us'], //too weird
 
   //multiple word contractions
   dunno: ['do', 'not', 'know'],

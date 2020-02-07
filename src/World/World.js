@@ -63,6 +63,7 @@ class World {
     this.unpackWords(lexData)
     // add our irregulars to lexicon
     this.addIrregulars()
+    delete this.words['']
 
     // cache our abbreviations for our sentence-parser
     Object.defineProperty(this, 'cache', {
