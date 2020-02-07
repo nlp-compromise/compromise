@@ -1,5 +1,5 @@
 const nlp = require('./src/index')
-// let txt = require('./scripts/test/speed/_sotu-text.js')
+let txt = require('./scripts/test/speed/_sotu-text.js')
 // nlp.verbose(true)
 // nlp.extend(require('./plugins/numbers/src'))
 // nlp.extend(require('./plugins/scan/src'))
@@ -8,13 +8,13 @@ const nlp = require('./src/index')
 // nlp(`April, June, and September`).debug()
 
 // nlp(`i won't go`).debug()
-let doc = nlp(`before i'm          going`).debug()
-doc.contractions().expand()
-console.log(doc.text())
+// let doc = nlp(`before i'm          going`).debug()
+// doc.contractions().expand()
+// console.log(doc.text())
 // console.log(doc.termList())
 
 // console.time('all')
-// nlp(txt) //.debug()
+nlp(txt) //.debug()
 // console.timeEnd('all')
 
 // (the|those|these) #Adjective? [#PastTense]
